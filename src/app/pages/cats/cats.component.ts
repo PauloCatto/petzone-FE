@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pet } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { PetService } from 'src/app/services/pet.service';
   styleUrls: ['./cats.component.scss'],
 })
 export class CatsComponent {
-  cats: any[] = [];
+  cats: Pet[] = [];
 
   constructor(private petService: PetService) {}
 
@@ -19,7 +20,6 @@ export class CatsComponent {
     this.petService.getTypes('cat').subscribe(
       (response) => {
         this.cats = response ?? [];
-        console.log(this.cats)
       },
       (error) => {
         console.error('Erro ao buscar gatos do backend:', error);

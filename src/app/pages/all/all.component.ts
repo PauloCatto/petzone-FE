@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeResponse } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { PetService } from 'src/app/services/pet.service';
   styleUrls: ['./all.component.scss'],
 })
 export class AllComponent {
-  data: any;
+  data: HomeResponse = { products: [], backgroundAsset: '' };
 
   constructor(protected petService: PetService) {}
 
@@ -17,11 +18,11 @@ export class AllComponent {
 
   getAllPets(): void {
     this.petService.getPets().subscribe(
-      (response: any) => {
-        this.data = response ?? [];
+      (response: HomeResponse) => {
+        this.data = response ?? { products: [], backgroundAsset: '' };
       },
       (error: any) => {
-        this.data = [];
+        this.data = { products: [], backgroundAsset: '' };
         console.error('Erro ao buscar dados do backend:', error);
       }
     );
