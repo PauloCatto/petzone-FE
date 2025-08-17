@@ -1,0 +1,19 @@
+<section
+  class="banner"
+  [ngStyle]="{ 'background-image': 'url(assets/images/allanimals.jpg)' }"
+>
+  Cachorros
+</section>
+
+<h2>Cachorros disponíveis para adoção</h2>
+
+<div class="container list">
+  <mat-card *ngFor="let dog of dogs" class="animal-card">
+    <img mat-card-image [src]="dog.image" [alt]="dog.name" />
+    <mat-card-title>{{ dog.name }}</mat-card-title>
+    <mat-card-content>
+      <p><strong>Cor:</strong> {{ dog.color }}</p>
+      <p><strong>Gênero:</strong> {{ dog.genre }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

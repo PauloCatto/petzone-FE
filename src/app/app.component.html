@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="logo" routerLink="/all">PetDevShop</span>
+  <span class="spacer"></span>
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Pesquise por raça</mat-label>
+    <input matInput type="search" name="q" />
+    <button mat-icon-button matSuffix aria-label="Pesquisar">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</mat-toolbar>
+
+<mat-tab-group class="nav-bar" [selectedIndex]="selectedIndex" (selectedIndexChange)="onTabChange($event)">
+  <mat-tab label="Todos" routerLink="/all"></mat-tab>
+  <mat-tab label="Cachorros" routerLink="/dogs"></mat-tab>
+  <mat-tab label="Gatos" routerLink="/cats"></mat-tab>
+  <mat-tab label="Peixes" routerLink="/fish"></mat-tab>
+</mat-tab-group>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,19 @@
+<section
+  class="banner"
+  [ngStyle]="{ 'background-image': 'url(assets/images/allanimals.jpg)' }"
+>
+  Gatos
+</section>
+
+<h2>Gatos disponíveis para adoção</h2>
+
+<div class="container list">
+  <mat-card *ngFor="let cat of cats" class="animal-card">
+    <img mat-card-image [src]="cat.image" [alt]="cat.name" />
+    <mat-card-title>{{ cat.name }}</mat-card-title>
+    <mat-card-content>
+      <p><strong>Cor:</strong> {{ cat.color }}</p>
+      <p><strong>Gênero:</strong> {{ cat.sex }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

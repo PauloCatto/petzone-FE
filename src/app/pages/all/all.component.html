@@ -1,0 +1,35 @@
+<section
+  class="banner"
+  [ngStyle]="{
+    'background-image': 'url(assets/images/' + data?.backgroundAsset + ')'
+  }"
+>
+  Todos os animais
+</section>
+
+<h2>Todos os animais disponíveis para adoção</h2>
+
+<div class="container list">
+  <mat-card *ngFor="let animal of data?.products" class="animal-card">
+    <img
+      mat-card-image
+      [src]="'assets/images/' + animal.image"
+      [alt]="animal.name"
+    />
+
+    <mat-card-title>{{ animal.name }}</mat-card-title>
+
+    <mat-card-content>
+      <p><strong>Tipo:</strong> {{ animal.type | titlecase }}</p>
+
+      <p>
+        <strong>Preço:</strong>
+        {{ animal.price | currency : "BRL" : "symbol" : "1.2-2" }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="data?.products?.length === 0" class="no-animals-card">
+    Nenhum animal encontrado no momento.
+  </mat-card>
+</div>
