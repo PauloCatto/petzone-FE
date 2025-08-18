@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-
+import { PetService } from './services/pet.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'petzone';
   selectedIndex = 0;
   routes = ['/all', '/dogs', '/cats', '/fish'];
+  searchTerm: string = '';
 
-   constructor(private router: Router) {}
+  constructor(private router: Router, private petService: PetService) {}
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
@@ -22,7 +23,11 @@ export class AppComponent implements OnInit{
     });
   }
 
-   onTabChange(index: number) {
+  onSearch(event: Event) {
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.petService.setSearchTerm(this.searchTerm);
+  }
+  onTabChange(index: number) {
     this.router.navigate([this.routes[index]]);
   }
 }

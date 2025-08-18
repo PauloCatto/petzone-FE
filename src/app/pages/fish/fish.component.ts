@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { map, switchMap } from 'rxjs';
 import { Pet } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
 
@@ -17,15 +18,33 @@ export class FishComponent {
   }
 
   getFishes(): void {
-    this.petService.getTypes('fish').subscribe(
-      (response) => {
-        this.fishes = response ?? [];
-        console.log(this.fishes)
-      },
-      (error) => {
-        console.error('Erro ao buscar gatos do backend:', error);
-        this.fishes = [];
-      }
-    );
+    this.petService.searchTerm$
+      .pipe(
+        switchMap((term) => {
+          if (!term) {
+            return this.petService.getTypes('fish');
+          }
+
+          return this.petService.searchPets(term).pipe(
+            map((results: Pet[]) =>
+              results
+                .filter((pet) => pet.type === 'fish')
+                .map((pet) => ({
+                  ...pet,
+                  image: `assets/images/${pet.image}`,
+                }))
+            )
+          );
+        })
+      )
+      .subscribe(
+        (response: Pet[]) => {
+          this.fishes = response ?? [];
+        },
+        (error) => {
+          console.error('Erro ao buscar gatos do backend:', error);
+          this.fishes = [];
+        }
+      );
   }
 }
