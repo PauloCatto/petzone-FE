@@ -6,6 +6,7 @@ import { DogsComponent } from './pages/dogs/dogs.component';
 import { CatsComponent } from './pages/cats/cats.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/all', pathMatch: 'full' },
   { path: 'all', component: AllComponent },
   { path: 'dogs', component: DogsComponent },
   { path: 'cats', component: CatsComponent },

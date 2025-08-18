@@ -1,18 +1,17 @@
-html,
-body {
-  height: 100%;
-}
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f6fa;
+  color: #333;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 :host {
   display: block;
-  font-family: "Roboto", Arial, sans-serif;
-  margin: 0;
   padding: 0;
-  min-height: 100vh;
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif;
 }
 
 .toolbar {
@@ -20,29 +19,22 @@ body {
   top: 20px;
   z-index: 1000;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0 16px;
   background-color: #fff !important;
+  border-bottom: 1px solid #e0e0e0;
 
   .logo {
     font-weight: 800;
-    font-size: 30px;
+    font-size: 28px;
     cursor: pointer;
     color: #102581;
     text-decoration: none;
-    margin-bottom: 20px;
-  }
-
-  .spacer {
-    flex: 1 1 auto;
   }
 
   .search-field {
     width: 250px;
-
-    input {
-      color: #102581;
-    }
 
     button {
       color: #102581;
@@ -60,6 +52,7 @@ body {
   background-color: #0b1af8a4;
   padding-left: 16px;
   margin-top: 20px;
+  height: 50px;
 
   a {
     font-weight: 400;
@@ -78,17 +71,18 @@ body {
 }
 
 .banner {
-  height: 300px;
+  height: 250px;
   background-size: cover;
   background-position: center;
   color: #fff;
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-shadow: 2px 2px 4px #00000080;
+  text-shadow: 2px 2px 6px #00000050;
   margin-bottom: 24px;
+  border-radius: 12px;
 }
 
 h2 {
@@ -102,7 +96,7 @@ h2 {
 .container.list {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 20px;
   justify-content: center;
   padding: 0 16px;
   max-width: 1200px;
@@ -110,31 +104,34 @@ h2 {
 }
 
 .animal-card {
-  flex: 0 1 calc(33.333% - 24px);
-  max-width: 350px;
-  box-shadow: 0 4px 8px #0000001a;
-  border-radius: 8px;
+  flex: 0 1 calc(33% - 20px);
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .animal-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 16px #00000033;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
-.animal-card mat-card-image,
-.animal-card img {
-  object-fit: cover;
+.animal-card img,
+.animal-card mat-card-image {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
 }
 
 .animal-card mat-card-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: #102581;
-  padding: 16px;
+  padding: 12px 16px;
   text-align: center;
 }
 
@@ -144,7 +141,7 @@ h2 {
 }
 
 .animal-card mat-card-content p {
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
 .animal-card mat-card-content strong {
@@ -153,17 +150,25 @@ h2 {
 
 @media (max-width: 900px) {
   .animal-card {
-    flex: 0 1 calc(50% - 24px);
+    flex: 0 1 calc(50% - 20px);
   }
 }
 
 @media (max-width: 600px) {
   .banner {
-    font-size: 32px;
-    height: 200px;
+    font-size: 28px;
+    height: 180px;
   }
   .animal-card {
     flex: 1 1 100%;
     max-width: none;
   }
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background: linear-gradient(150deg, #7d81f1cc, #7477ffcc);
+}
+
+.mat-mdc-card {
+  background-color: rgb(241, 238, 238) !important;
 }
