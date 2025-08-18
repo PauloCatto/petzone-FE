@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pet } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { PetService } from 'src/app/services/pet.service';
   styleUrls: ['./fish.component.scss'],
 })
 export class FishComponent {
-  fishes: any[] = [];
+  fishes: Pet[] = [];
 
   constructor(private petService: PetService) {}
 
