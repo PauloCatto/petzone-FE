@@ -28,7 +28,6 @@ export class AllComponent {
               switchMap((results: Pet[]) => {
                 return of({
                   products: results,
-                  backgroundAsset: 'allanimals.jpg',
                 });
               })
             );
@@ -37,7 +36,7 @@ export class AllComponent {
       )
       .subscribe(
         (response: any) => {
-          this.data = response ?? { products: [], backgroundAsset: '' };
+          this.data = response ?? { products: [] };
         },
         (error) => {
           console.error('Erro ao buscar dados do backend:', error);
