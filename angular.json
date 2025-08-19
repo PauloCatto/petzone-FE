@@ -69,7 +69,8 @@
               "browserTarget": "petzone:build:production"
             },
             "development": {
-              "browserTarget": "petzone:build:development"
+              "browserTarget": "petzone:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

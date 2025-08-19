@@ -27,12 +27,7 @@ export class FishComponent {
 
           return this.petService.searchPets(term).pipe(
             map((results: Pet[]) =>
-              results
-                .filter((pet) => pet.type === 'fish')
-                .map((pet) => ({
-                  ...pet,
-                  image: `assets/images/${pet.image}`,
-                }))
+              results.filter((pet) => pet.type === 'fish')
             )
           );
         })
