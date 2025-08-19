@@ -43,8 +43,9 @@ body {
     font-weight: 800;
     font-size: 26px;
     cursor: pointer;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-decoration: none;
+    margin-left: 20px;
   }
 
   .search-field {
@@ -215,11 +216,15 @@ h2 {
   }
 }
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  background: linear-gradient(150deg, #7d81f1cc, #7477ffcc);
+  background: var(--secondary-color);
   display: flex;
   align-items: center;
 }
 
 .mat-mdc-card {
   background-color: var(--background-color-card) !important;
+}
+
+footer {
+  margin-top: 20px;
 }

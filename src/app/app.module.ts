@@ -17,6 +17,7 @@ import { CatsComponent } from './pages/cats/cats.component';
 import { FishComponent } from './pages/fish/fish.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     DogsComponent,
     CatsComponent,
     FishComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
