@@ -50,9 +50,9 @@ export class DogsComponent {
       );
   }
 
-   openReserveDialog(petId: number, petName: string): void {
+   openReserveDialog(pet: Pet): void {
     const dialogRef = this.dialog.open(ReserveDialogComponent, {
-      data: { petId, petName },
+      data: pet,
     });
   
     dialogRef.afterClosed().subscribe(result => {});

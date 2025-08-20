@@ -36,10 +36,12 @@ export class ReserveDialogComponent {
   }
 
   onSubmit(): void {
+    console.log(this.data)
     if (this.reserveForm.valid) {
       const reservationData = {
-        petId: this.data.petId,
-        petName: this.data.petName,
+        petId: this.data.id,
+        petName: this.data.name,
+        petType: this.data.type,
         ...this.reserveForm.value,
       };
 

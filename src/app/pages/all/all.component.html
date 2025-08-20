@@ -13,7 +13,7 @@
   <mat-card *ngFor="let animal of data?.products" class="animal-card">
     <img
       mat-card-image
-      [src]="'assets/images/' + animal.image"
+      [src]="animal.image"
       [alt]="animal.name"
     />
 
@@ -31,7 +31,7 @@
       <button
         mat-raised-button
         color="primary"
-        (click)="openReserveDialog(animal.id, animal.name)"
+        (click)="openReserveDialog(animal)"
       >
         Reservar para Adoção
       </button>

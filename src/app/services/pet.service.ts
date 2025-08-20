@@ -58,6 +58,6 @@ export class PetService {
       );
   }
   sendReservation(reservationData: any): Observable<any> {
-    return this.http.post(this.url, reservationData);
+    return this.http.post(`${this.url}/email`, reservationData);
   }
 }
