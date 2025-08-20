@@ -15,5 +15,14 @@
       <p><strong>Cor:</strong> {{ dog.color }}</p>
       <p><strong>Gênero:</strong> {{ dog.sex }}</p>
     </mat-card-content>
+    <mat-card-actions class="card-actions-bottom">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openReserveDialog(dog.id, dog.name)"
+      >
+        Reservar para Adoção
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>

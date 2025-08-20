@@ -18,17 +18,15 @@ export class PetService {
   setSearchTerm(term: string) {
     this.searchTermSource.next(term);
   }
-  getPets(): Observable<{ products: Pet[]}> {
-    return this.http.get<{ products: Pet[] }>(
-      `${this.url}/home`
-    ).pipe(
-      map(response => {
+  getPets(): Observable<{ products: Pet[] }> {
+    return this.http.get<{ products: Pet[] }>(`${this.url}/home`).pipe(
+      map((response) => {
         return {
           ...response,
-          products: response.products.map(pet => ({
+          products: response.products.map((pet) => ({
             ...pet,
             image: pet.image,
-          }))
+          })),
         };
       })
     );
@@ -36,21 +34,30 @@ export class PetService {
   getTypes(type: Pet['type']): Observable<Pet[]> {
     const path = type === 'fish' ? 'fishes' : `${type}s`;
     return this.http.get<Pet[]>(`${this.url}/${path}`).pipe(
-      map(pets => pets.map(pet => ({
-        ...pet,
-        image: pet.image,
-      })))
+      map((pets) =>
+        pets.map((pet) => ({
+          ...pet,
+          image: pet.image,
+        }))
+      )
     );
   }
 
   searchPets(query: string): Observable<Pet[]> {
-    return this.http.get<Pet[]>(`${this.url}/search`, {
-      params: { q: query },
-    }).pipe(
-      map(pets => pets.map(pet => ({
-        ...pet,
-        image: pet.image,
-      })))
-    );
+    return this.http
+      .get<Pet[]>(`${this.url}/search`, {
+        params: { q: query },
+      })
+      .pipe(
+        map((pets) =>
+          pets.map((pet) => ({
+            ...pet,
+            image: pet.image,
+          }))
+        )
+      );
+  }
+  sendReservation(reservationData: any): Observable<any> {
+    return this.http.post(this.url, reservationData);
   }
 }

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { map, switchMap } from 'rxjs';
 import { Pet } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
+import { ReserveDialogComponent } from '../reserve-dialog/reserve-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-fish',
@@ -11,7 +13,7 @@ import { PetService } from 'src/app/services/pet.service';
 export class FishComponent {
   fishes: Pet[] = [];
 
-  constructor(private petService: PetService) {}
+  constructor(private petService: PetService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getFishes();
@@ -42,4 +44,12 @@ export class FishComponent {
         }
       );
   }
+
+   openReserveDialog(petId: number, petName: string): void {
+      const dialogRef = this.dialog.open(ReserveDialogComponent, {
+        data: { petId, petName },
+      });
+    
+      dialogRef.afterClosed().subscribe(result => {});
+    }
 }

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { switchMap, of } from 'rxjs';
 import { HomeResponse, Pet } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
+import { ReserveDialogComponent } from '../reserve-dialog/reserve-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-all',
@@ -11,7 +13,7 @@ import { PetService } from 'src/app/services/pet.service';
 export class AllComponent {
   data: HomeResponse = { products: [], backgroundAsset: '' };
 
-  constructor(protected petService: PetService) {}
+  constructor(public dialog: MatDialog, protected petService: PetService) {}
 
   ngOnInit(): void {
     this.getAllPets();
@@ -44,4 +46,12 @@ export class AllComponent {
         }
       );
   }
+
+ openReserveDialog(petId: number, petName: string): void {
+  const dialogRef = this.dialog.open(ReserveDialogComponent, {
+    data: { petId, petName }, 
+  });
+
+  dialogRef.afterClosed().subscribe(result => {});
+}
 }
