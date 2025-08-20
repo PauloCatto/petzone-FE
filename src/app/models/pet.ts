@@ -11,7 +11,7 @@ export interface PetSummary {
 
 export interface HomeResponse {
   products: PetSummary[];
-  backgroundAsset: string;
+  backgroundAsset?: string;
 }
 
 export interface Pet {

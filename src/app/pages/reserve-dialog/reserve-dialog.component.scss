@@ -1,0 +1,74 @@
+::ng-deep .mat-mdc-dialog-container {
+  background: #ffffff !important;
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.adoption-dialog {
+  background-color: white;
+  width: 850px !important;
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: #475569;
+    margin: 0 0 1.5rem;
+  }
+
+  &__content {
+    padding: 1rem 1.5rem;
+  }
+
+  &__form {
+    display: flex;
+    gap: 1.2rem;
+    flex-direction: column;
+  }
+
+  &__field {
+    width: 100%;
+
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      background: #fff !important;
+      border-radius: 10px;
+    }
+
+    ::ng-deep input.mat-mdc-input-element {
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+
+    mat-icon {
+      color: #64748b;
+      margin-right: 4px;
+    }
+  }
+
+  &__actions {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 1rem;
+
+    button {
+      min-width: 130px;
+      font-weight: 600;
+      border-radius: 8px;
+    }
+  }
+}
+
+.text-input {
+  color: #000000 !important;
+}

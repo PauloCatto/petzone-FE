@@ -7,13 +7,13 @@
   Todos os animais
 </section>
 
-<h2>Todos os animais disponíveis para adoção</h2>
+<h2 class="all-title">No Petzone, acreditamos que todo animal merece um lar cheio de amor. Faça a sua parte e ajude um amigo especial a encontrar a família perfeita!</h2>
 
 <div class="container list">
   <mat-card *ngFor="let animal of data?.products" class="animal-card">
     <img
       mat-card-image
-      [src]="'assets/images/' + animal.image"
+      [src]="animal.image"
       [alt]="animal.name"
     />
 
@@ -27,6 +27,15 @@
         {{ animal.price | currency : "BRL" : "symbol" : "1.2-2" }}
       </p>
     </mat-card-content>
+    <mat-card-actions class="card-actions-bottom">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openReserveDialog(animal)"
+      >
+        Reservar para Adoção
+      </button>
+    </mat-card-actions>
   </mat-card>
 
   <mat-card *ngIf="data?.products?.length === 0" class="no-animals-card">

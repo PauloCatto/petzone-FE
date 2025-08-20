@@ -15,5 +15,14 @@
       <p><strong>Cor:</strong> {{ fish.color }}</p>
       <p><strong>Gênero:</strong> {{ fish.sex }}</p>
     </mat-card-content>
+    <mat-card-actions class="card-actions-bottom">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openReserveDialog(fish)"
+      >
+        Reservar para Adoção
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>

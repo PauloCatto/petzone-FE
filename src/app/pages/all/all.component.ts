@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { switchMap, of } from 'rxjs';
-import { HomeResponse, Pet } from 'src/app/models/pet';
+import { HomeResponse, Pet, PetSummary } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
+import { ReserveDialogComponent } from '../reserve-dialog/reserve-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-all',
@@ -9,9 +11,9 @@ import { PetService } from 'src/app/services/pet.service';
   styleUrls: ['./all.component.scss'],
 })
 export class AllComponent {
-  data: HomeResponse = { products: [], backgroundAsset: '' };
+  data: HomeResponse = { products: [] };
 
-  constructor(protected petService: PetService) {}
+  constructor(public dialog: MatDialog, protected petService: PetService) {}
 
   ngOnInit(): void {
     this.getAllPets();
@@ -40,8 +42,16 @@ export class AllComponent {
         },
         (error) => {
           console.error('Erro ao buscar dados do backend:', error);
-          this.data = { products: [], backgroundAsset: '' };
+          this.data = { products: [] };
         }
       );
+  }
+
+  openReserveDialog(pet: PetSummary): void {
+    const dialogRef = this.dialog.open(ReserveDialogComponent, {
+      data: pet,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 }
