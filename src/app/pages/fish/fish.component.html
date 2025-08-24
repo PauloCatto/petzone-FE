@@ -25,4 +25,8 @@
       </button>
     </mat-card-actions>
   </mat-card>
+  
+  <mat-card *ngIf="fishes?.length === 0" class="no-animals-card">
+    Nenhum peixe encontrado no momento.
+  </mat-card>
 </div>

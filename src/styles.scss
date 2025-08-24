@@ -34,24 +34,24 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
+  padding: 12px 16px;
   background-color: #fff !important;
   border-bottom: 1px solid var(--border-color);
   box-shadow: 0 2px 6px var(--box-shadow-color);
 
   .logo {
     font-weight: 800;
-    font-size: 26px;
+    font-size: 24px;
     cursor: pointer;
     color: var(--secondary-color);
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 10px;
   }
 
   .search-field {
     width: 280px;
-    margin-top: 30px;
-    height: 70px;
+    height: 60px;
+    margin-top: 20px;
 
     mat-form-field {
       margin: 0;
@@ -79,16 +79,17 @@ body {
 
 .nav-bar {
   background-color: var(--secondary-color);
-  padding: 0 16px;
+  padding: 0 12px;
   height: 48px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  display: flex !important;
+  align-items: flex-end;
+  gap: 12px;
   border-radius: 0 0 12px 12px;
+  flex-wrap: wrap;
 
   a {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: #fff !important;
     text-decoration: none;
     padding-bottom: 4px;
@@ -104,44 +105,46 @@ body {
 }
 
 .banner {
-  height: 240px;
+  height: 200px;
   background-size: cover;
   background-position: center;
   color: #fff;
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
   text-shadow: 2px 2px 6px #00000050;
-  margin: 24px auto;
-  border-radius: 16px;
-  max-width: 1200px;
+  margin: 16px auto;
+  border-radius: 12px;
+  max-width: 100%;
+  padding: 0 16px;
+  text-align: center;
 }
 
 h2 {
   text-align: center;
   color: var(--primary-color);
   font-weight: 700;
-  margin: 32px 0;
-  font-size: 28px;
+  margin: 24px 0;
+  font-size: 24px;
 }
 
 .container.list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
   justify-content: center;
-  padding: 0 16px;
+  padding: 0 12px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .animal-card {
-  flex: 0 1 calc(33% - 20px);
+  flex: 0 1 calc(33% - 16px);
   max-width: 300px;
   background-color: var(--background-color-card);
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -151,21 +154,14 @@ h2 {
 }
 
 .animal-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.15);
-}
-
-.animal-card mat-card-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 .animal-card mat-card-image img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
-  object-position: 50% 20%;
   transition: transform 0.5s ease;
 }
 
@@ -174,38 +170,23 @@ h2 {
 }
 
 .animal-card mat-card-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--primary-color);
-  padding: 16px;
+  padding: 12px;
   text-align: center;
   border-bottom: 1px solid var(--border-color);
 }
 
 .animal-card mat-card-content {
-  padding: 16px;
+  padding: 12px;
   color: var(--text-color-secondary);
   flex-grow: 1;
 }
 
-.animal-card mat-card-content p {
-  margin: 8px 0;
-}
-
-.animal-card mat-card-content strong {
-  color: var(--primary-color);
-}
-
-.animal-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  border-bottom: 1px solid #eee;
-}
-
 @media (max-width: 900px) {
   .animal-card {
-    flex: 0 1 calc(50% - 20px);
+    flex: 0 1 calc(50% - 16px);
   }
 }
 
@@ -215,6 +196,7 @@ h2 {
     max-width: none;
   }
 }
+
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background: var(--secondary-color);
   display: flex;
@@ -232,10 +214,11 @@ footer {
 .card-actions-bottom {
   display: flex;
   justify-content: flex-end;
-  padding: 16px;
+  padding: 12px;
 }
 
 .all-title {
-  width: 68%;
-  margin-left: 195px !important;
+  width: 100%;
+  margin-left: 0 !important;
+  text-align: center;
 }
