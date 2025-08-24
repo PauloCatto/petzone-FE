@@ -25,4 +25,8 @@
       </button>
     </mat-card-actions>
   </mat-card>
+
+  <mat-card *ngIf="dogs?.length === 0" class="no-animals-card">
+    Nenhum cachorro encontrado no momento.
+  </mat-card>
 </div>

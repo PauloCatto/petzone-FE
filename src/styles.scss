@@ -81,8 +81,8 @@ body {
   background-color: var(--secondary-color);
   padding: 0 12px;
   height: 48px;
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: flex-end;
   gap: 12px;
   border-radius: 0 0 12px 12px;
   flex-wrap: wrap;
