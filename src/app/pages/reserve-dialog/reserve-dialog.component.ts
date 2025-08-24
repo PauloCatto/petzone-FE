@@ -36,7 +36,6 @@ export class ReserveDialogComponent {
   }
 
   onSubmit(): void {
-    console.log(this.data)
     if (this.reserveForm.valid) {
       const reservationData = {
         petId: this.data.id,
@@ -56,7 +55,6 @@ export class ReserveDialogComponent {
               verticalPosition: 'top' as MatSnackBarVerticalPosition,
             }
           );
-          console.log('Resposta do backend:', response);
           this.dialogRef.close(true);
         },
         error: (error: any) => {
